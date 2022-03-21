@@ -8,41 +8,37 @@ const Button = ({ onClick, text }) => (
     {text}
   </button>
 )
-
 const StatisticLine = ({text, value}) => {
  
   return (
     <tr><td>{text} {value}</td></tr>
   )
 }
-
 const Statistics = ({prop}) => {
-    const total = prop.good + prop.neutral + prop.bad
-    const average = (prop.good * 1 + prop.bad * -1) / total
-    const pos = prop.good * (100/total)
+    const all = prop.good + prop.neutral + prop.bad
+    const average = (prop.good * 1 + prop.bad * -1) / all
+    const pos = prop.good * (100/all)
 
-    if (total === 0) {
+    if (all === 0) {
       return (
         <div>
           No feedback yet
         </div>
       )
     }
-
     return (
       <div>
-            <StatisticLine text="good" value={prop.good} />
-            <StatisticLine text="neutral" value={prop.neutral} />
-            <StatisticLine text="bad" value={prop.bad} />
-            <StatisticLine text="all" value={total} />
-            <StatisticLine text="average" value={average} />
-            <StatisticLine text="positive" value={pos} />
+            <StatisticLine text="Good" value={prop.good} />
+            <StatisticLine text="Neutral" value={prop.neutral} />
+            <StatisticLine text="Bad" value={prop.bad} />
+            <StatisticLine text="Total number of clicks" value={all} />
+            <StatisticLine text="Average" value={average} />
+            <StatisticLine text="Positive" value={pos} />
       </div>
     )
 }
-
 const App = () => {
-  // save clicks of each button to own state
+  
   const [prop, Click] = useState({
     good: 0, neutral: 0, bad: 0
   })
@@ -59,14 +55,18 @@ const App = () => {
   return (
     <div>
       <Header name="Feedback" />
-      <Button onClick={goodButton} text='good' />
-      <Button onClick={neutralB} text='neutral' />
-      <Button onClick={badB} text='bad' />
+      <Button onClick={goodButton} text='Good' />
+      <Button onClick={neutralB} text='Neutral' />
+      <Button onClick={badB} text='Bad' />
       <Header name="Statistics" />
       <Statistics prop={prop} />
     </div>
   )
 }
+
+
+
+
 
 ReactDOM.render(<App />,
   document.getElementById('root')
