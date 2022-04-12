@@ -1,78 +1,66 @@
-import React from "react";
-import { useState } from "react";
 import Note from './components/Note'
-//If empty use line below
-//const App = () => {  const [notes, setNotes] = useState([])
+import { useState } from 'react'
 
-const App = (props) => {
-  const [notes, setNotes] = useState(props.notes)
-  const [numNotes, setNumber] =useState(props.notes)
+const App = () => {
   const [persons, setPersons] = useState([
     { name: 'Arto Hellas' }
   ]) 
-  //Let's add a new piece of state called newNote for 
-  //storing the user-submitted input  
-  //and let's set it as the input element's value attribute:
- // const [newNote, setNewNote] = useState(    'a new note...'  ) 
-    const[newName, addNewName] = useState('');
-    const[newNumber, addNewNumber] = useState('');
-    const [cantAdd, setError] = useState(false);
-
-  //
-  //Adds number
-  
-
-  //Adds note
-  const addNote = (event) => {   
-   event.preventDefault()  
-   if (notes.find((note) => note.content === newName))  {
-    setError(true);
-    window.alert(newName + ' has already been added');
-    return false;
-    
-  }
-   console.log('button clicked', event.target)
-   const noteObject = {
-    content: newName,
-    date: new Date().toISOString(),
-    important: Math.random() < 0.5,
-    id: notes.length + 1,
-  }
-
-  setNotes(notes.concat(noteObject))
- // setPersons(persons.concat(noteObject))
-  addNewName('')
-  }
-
-   const handleNameChange = (event) =>
-    {  
-       console.log(event.target.value)
-       addNewName(event.target.value) 
+  const [newName, setNewName] = useState('')
+  const [newNumber, setNewNumber] = useState('')
+//Add name
+  const addName = (event) => 
+  {    
+    event.preventDefault()  
+    if (persons.find((name) => name.content === newName))  {
+     // setError(true);
+      window.alert(newName + ' has already been added');
+      return false;
+      
     }
-   //<form onSubmit={addNote}>    <input /> Creates form to app
+    console.log('button clicked', event.target)
+    const noteObject = {
+      content: newName,
+      number: newNumber
+      
+    }
+    setPersons(persons.concat(noteObject))
+    setNewNumber(persons.concat(noteObject))
+    addName('')
+      }
+
+      const hNameChange = (event) =>
+       {
+             console.log(event.target.value) 
+           setNewName(event.target.value) 
+           }
+           const hNumberChange = (event) =>
+       {
+             console.log(event.target.value) 
+           setNewNumber(event.target.value) 
+           }
+
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={addNote}> 
-      {cantAdd && <p className="cantAdd"></p>}
-      <input
-       value={newName}
-       onChange={handleNameChange} />
-     <button type="submit">save</button> 
-       </form>  
+
+      <h2> Add new person </h2>
+      <form onSubmit={addName}>
+        <div>
+          name: <input value={newName} onChange={hNameChange}  />
+          <div>number: <input value={newNumber} onChange={hNumberChange} /></div>
+        </div>
+        <div>
+          <button type="submit">add</button>
+        </div>
+      </form>
       <h2>Numbers</h2>
-      <ul>
-        {notes.map(note => 
+      {persons.map(note =>
           <Note key={note.id} note={note} />
         )}
-         
-        
-      </ul>  
+      ...
     </div>
   )
-}
-/* {notes.map(note => 
-          <Note key={note.id} note={note} />
-        )}*/
 
-export default App 
+}
+
+export default App
