@@ -24,7 +24,8 @@ const App = () => {
       
     }
     setPersons(persons.concat(noteObject))
-    setNewNumber(persons.concat(noteObject))
+    setNewNumber('')
+    setNewName('')
     addName('')
       }
 
@@ -38,6 +39,8 @@ const App = () => {
              console.log(event.target.value) 
            setNewNumber(event.target.value) 
            }
+
+           
 
   return (
     <div>
