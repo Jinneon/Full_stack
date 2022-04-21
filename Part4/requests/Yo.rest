@@ -1,0 +1,17 @@
+//post body 
+
+
+
+POST http://localhost:3003/api/blogs
+Content-Type:  application/json
+
+
+
+{
+   "title":"The Legendary CodeR Called Fishing Pro",
+   "author":"Jinneon",
+   "url": "FishingForever.org",
+   "likes": 100
+}
+
+GET http://localhost:3003/api/blogs

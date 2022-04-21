@@ -1,0 +1,30 @@
+{
+  "name": "part4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\"",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jinneon/Full_stack.git"
+  },
+  "author": "Jinneon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jinneon/Full_stack/issues"
+  },
+  "homepage": "https://github.com/Jinneon/Full_stack#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.3.0"
+
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
