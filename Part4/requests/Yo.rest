@@ -1,17 +1,12 @@
-//post body 
 
 
 
-POST http://localhost:3003/api/blogs
-Content-Type:  application/json
 
 
+POST http://localhost:3003/api/blogs/ 
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikppbm5lb24iLCJpZCI6IjYyNzEwMTI3YmExYTVhODE0ZjYzN2E5MSIsImlhdCI6MTY1MTU3MzA2OH0.jRencHiQ9xpnipAXDiM1ANcPH0JzIotsghObxXC-2xQ
 
-{
-   "title":"The Legendary CodeR Called Fishing Pro",
-   "author":"Jinneon",
-   "url": "FishingForever.org",
-   "likes": 100
-}
+{ "title": "Fish77 ", "author": "Fishing Pro: ", "url": "https://images.ctfassets.net/lufu0clouua1/Tr9lRGHXCS6GU4Kc8Qkg0/2f3a25a99c3f54c867ef5f8350aca5a3/King-Salmon.jpg", "likes": 27000000, "user":"Jinneon"}
 
-GET http://localhost:3003/api/blogs
+
