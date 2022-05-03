@@ -60,6 +60,20 @@ test("Zero likes if likes property is missing", async () => {
 })
 
 
+test("If title or url are missing", async () => {
+  const nBlog = {
+    "author": "Jinneon",
+    "likes": 7
+  }
+  await api
+    .post("/api/blogs/")
+    .send(nBlog)
+    .expect(400)
+})
+
+
+
+
 
 
 
