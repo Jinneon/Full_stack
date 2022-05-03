@@ -41,6 +41,26 @@ beforeEach(async () => {
   await bObj.save()
 })
 
+test("Zero likes if likes property is missing", async () => {
+  const nBlog = {
+    "title": "Fishing for likes",
+    "author": "Jinneon",
+    "url": "https://www.google.com"
+  }
+  await api
+    .post("/api/blogs/")
+    .send(nBlog)
+    .expect(201)
+    .expect("Content-Type", /application\/json/)
+
+  const resp = await helper.blogsInDb()
+  const newB = resp[resp.length - 1]
+
+  expect(newB.likes).toEqual(0)
+})
+
+
+
 
 
 
