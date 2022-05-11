@@ -1,0 +1,40 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Part 5 backend",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --forceExit",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "start:test": "cross-env NODE_ENV=test node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jinneon/Full_stack.git"
+  },
+  "author": "Jinneon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jinneon/Full_stack/issues"
+  },
+  "homepage": "https://github.com/Jinneon/Full_stack#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.16",
+    "supertest": "^6.2.3"
+  }
+}
